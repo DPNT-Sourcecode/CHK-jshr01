@@ -89,8 +89,9 @@ public class CheckoutSolutionTest {
     public void calculate_cost_with_one_F() {
         assertThat(chk.checkout("AF"), equalTo(60));
     }
+
+    @Test
+    public void calculate_cost_with_20_products() {
+        assertThat(chk.checkout("ABCDEFGHIJKLMNOPQRST"), equalTo(670));
+    }
 }
-
-
-
-

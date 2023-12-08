@@ -201,8 +201,9 @@ public class CheckoutSolution {
         discountsMap.put("Q", sixthDiscount);
 
         Map<Integer, Integer> seventhDiscount = new HashMap<>();
-        seventhDiscount.put(3, 80);
-        discountsMap.put("Q", seventhDiscount);
+        seventhDiscount.put(2, 90);
+        seventhDiscount.put(3, 130);
+        discountsMap.put("V", seventhDiscount);
     }
 
     /**
@@ -218,8 +219,17 @@ public class CheckoutSolution {
         Map<Integer, String> secondDiscount = new HashMap<>();
         secondDiscount.put(2, "F");
         freeItemsMap.put("F", secondDiscount);
+
+        Map<Integer, String> thirdDiscount = new HashMap<>();
+        thirdDiscount.put(3, "M");
+        freeItemsMap.put("N", thirdDiscount);
+
+        Map<Integer, String> fourthDiscount = new HashMap<>();
+        fourthDiscount.put(3, "Q");
+        freeItemsMap.put("R", fourthDiscount);
+
+        Map<Integer, String> fifthDiscount = new HashMap<>();
+        fifthDiscount.put(3, "U");
+        freeItemsMap.put("U", fifthDiscount);
     }
 }
-
-
-
