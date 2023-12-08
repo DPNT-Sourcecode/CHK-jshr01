@@ -92,13 +92,19 @@ public class CheckoutSolution {
                     Integer quantityNeedForFree = freeItemEntry.getKey();
                     String itemToOffer = freeItemEntry.getValue();
 
-                    if(shoppingCartMap.containsKey(itemToOffer) && shoppingCartMap.get(itemToOffer) >= quantityNeedForFree){
+                    if(shoppingCartMap.containsKey(itemToOffer) && shoppingCartMap.get(itemToOffer) > 0){
                         Integer freeItemTotal = shoppingCartMap.get(freeItem) / quantityNeedForFree;
 
                         if(freeItemTotal > 0){
                             Integer priceForFreeItem = 0;
 
+                            Integer totalAvailableItemsToOffer = shoppingCartMap.get(itemToOffer);
+
+
                             if(discountsMap.containsKey(itemToOffer)){
+
+
+
                                 priceForFreeItem = calculateDiscounts(1, 0, discountsMap.get(itemToOffer));
                             }else{
                                 priceForFreeItem = pricesMap.get(itemToOffer);
@@ -178,8 +184,3 @@ public class CheckoutSolution {
         freeItemsMap.put("E", firstDiscount);
     }
 }
-
-
-
-
-
