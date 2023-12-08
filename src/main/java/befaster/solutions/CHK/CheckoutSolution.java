@@ -204,6 +204,14 @@ public class CheckoutSolution {
         seventhDiscount.put(2, 90);
         seventhDiscount.put(3, 130);
         discountsMap.put("V", seventhDiscount);
+
+        Map<Integer, Integer> eigththDiscount = new HashMap<>();
+        eigththDiscount.put(3, 45);
+        discountsMap.put("S", eigththDiscount);
+        discountsMap.put("T", eigththDiscount);
+        discountsMap.put("X", eigththDiscount);
+        discountsMap.put("Y", eigththDiscount);
+        discountsMap.put("Z", eigththDiscount);
     }
 
     /**
@@ -233,3 +241,4 @@ public class CheckoutSolution {
         freeItemsMap.put("U", fifthDiscount);
     }
 }
+

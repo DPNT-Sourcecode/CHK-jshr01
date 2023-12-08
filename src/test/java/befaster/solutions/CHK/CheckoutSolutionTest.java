@@ -109,6 +109,17 @@ public class CheckoutSolutionTest {
     public void calculate_cost_with_multiple_products_and_discounts_3() {
         assertThat(chk.checkout("ABCERRRQ"), equalTo(290));
     }
+
+    @Test
+    public void calculate_cost_with_buy_any_of_3_products_eq() {
+        assertThat(chk.checkout("SSS"), equalTo(45));
+    }
+
+    @Test
+    public void calculate_cost_with_buy_any_of_3_products_diff() {
+        assertThat(chk.checkout("STX"), equalTo(45));
+    }
 }
+
 
 
