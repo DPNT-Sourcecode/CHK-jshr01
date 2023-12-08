@@ -133,6 +133,8 @@ public class CheckoutSolution {
 
         Integer totalGroups = totalGroupDiscountsUnits / 3;
 
+        shoppingCartMap.put("PROMO_3_45", totalGroups);
+
         for (String keyItem : groupDiscountsMap.keySet()) {
             totalGroupDiscountsUnits += shoppingCartMap.getOrDefault(keyItem, 0);
         }
@@ -194,6 +196,7 @@ public class CheckoutSolution {
         pricesMap.put("X", 17);
         pricesMap.put("Y", 20);
         pricesMap.put("Z", 21);
+        pricesMap.put("PROMO_3_45", 45);
     }
 
     /**
@@ -272,6 +275,7 @@ public class CheckoutSolution {
         groupDiscountsMap.put("Z", firstDiscount);
     }
 }
+
 
 
 
