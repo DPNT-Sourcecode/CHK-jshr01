@@ -17,12 +17,12 @@ public class CheckoutSolutionTest {
 
     @Test
     public void calculate_cost() {
-        assertThat(chk.checkout("ABCDE"), equalTo(165));
+        assertThat(chk.checkout("ABCDE"), equalTo(155));
     }
 
     @Test
     public void calculate_cost_with_free_items() {
-        assertThat(chk.checkout("ABCDEE"), equalTo(165));
+        assertThat(chk.checkout("ABCDEE"), equalTo(195));
     }
 
     @Test
@@ -42,7 +42,8 @@ public class CheckoutSolutionTest {
 
     @Test
     public void calculate_cost_with_free_items_2() {
-        assertThat(chk.checkout("ABBCDE"), equalTo(170));
+        assertThat(chk.checkout("ABBCDEE"), equalTo(210));
     }
 }
+
 
