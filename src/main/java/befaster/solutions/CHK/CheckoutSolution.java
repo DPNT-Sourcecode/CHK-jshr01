@@ -8,6 +8,8 @@ import java.util.Map;
 public class CheckoutSolution {
     private final Map<String, Integer> pricesMap = new HashMap<>();
 
+    private final Map<String, Integer> discountsMap = new HashMap<>();
+
     public Integer checkout(String skus) {
         if(skus == null || skus.isEmpty()){
             return -1;
@@ -21,9 +23,15 @@ public class CheckoutSolution {
             return -1;
         }
 
+        Integer totalCost = 0;
+
         for (Map.Entry<String, Integer> entry : shoppingCartMap.entrySet()) {
             String item = entry.getKey();
             Integer quantity = entry.getValue();
+
+            Integer price = pricesMap.get(item) == null ? 0 : pricesMap.get(item);
+
+            totalCost += (price * quantity);
         }
 
 
@@ -64,4 +72,5 @@ public class CheckoutSolution {
         pricesMap.put("D", 15);
     }
 }
+
 
