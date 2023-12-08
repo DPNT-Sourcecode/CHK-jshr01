@@ -230,7 +230,7 @@ public class CheckoutSolution {
         discountsMap.put("H", thirdDiscount);
 
         Map<Integer, Integer> fourthDiscount = new HashMap<>();
-        fourthDiscount.put(2, 150);
+        fourthDiscount.put(2, 120);
         discountsMap.put("K", fourthDiscount);
 
         Map<Integer, Integer> fifthDiscount = new HashMap<>();
@@ -287,10 +287,3 @@ public class CheckoutSolution {
         groupDiscountsMap.put("Z", firstDiscount);
     }
 }
-
-
-
-
-
-
-

@@ -145,7 +145,3 @@ public class CheckoutSolutionTest {
         assertThat(chk.checkout("SSSSSSA"), equalTo(140));
     }
 }
-
-
-
-
