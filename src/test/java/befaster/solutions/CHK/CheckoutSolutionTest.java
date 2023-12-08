@@ -29,4 +29,10 @@ public class CheckoutSolutionTest {
     public void calculate_cost_invalid() {
         assertThat(chk.checkout("ABCXD"), equalTo(-1));
     }
+
+    @Test
+    public void empty_sku_list() {
+        assertThat(chk.checkout(""), equalTo(0));
+    }
 }
+

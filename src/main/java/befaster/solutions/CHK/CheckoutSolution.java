@@ -13,8 +13,11 @@ public class CheckoutSolution {
     private final Map<String, List<Integer>> discountsMap = new HashMap<>();
 
     public Integer checkout(String skus) {
-        if(skus == null || skus.isEmpty()){
+        // - For any illegal input return -1
+        if(skus == null){
             return -1;
+        }else if(skus.isEmpty()){
+            return 0;
         }
 
         populatePricesMap();
@@ -103,6 +106,7 @@ public class CheckoutSolution {
         discountsMap.put("B", secondDiscount);
     }
 }
+
 
 
 
