@@ -49,5 +49,11 @@ public class CheckoutSolutionTest {
     public void calculate_cost_with_free_items_3() {
         assertThat(chk.checkout("ABBCDEEB"), equalTo(210));
     }
+
+    @Test
+    public void calculate_cost_with_E() {
+        assertThat(chk.checkout("EEB"), equalTo(80));
+    }
 }
+
 
