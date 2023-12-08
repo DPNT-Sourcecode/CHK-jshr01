@@ -132,12 +132,18 @@ public class CheckoutSolution {
         }
 
         Integer totalGroups = totalGroupDiscountsUnits / 3;
-
         shoppingCartMap.put("PROMO_3_45", totalGroups);
 
-        for (String keyItem : groupDiscountsMap.keySet()) {
-            totalGroupDiscountsUnits += shoppingCartMap.getOrDefault(keyItem, 0);
+        if(totalGroupDiscountsUnits % 3 > 0){
+            for (String keyItem : groupDiscountsMap.keySet()) {
+
+                if(shoppingCartMap.getOrDefault(keyItem, 0) - totalGroupDiscountsUnits)
+
+                shoppingCartMap.put(keyItem, shoppingCartMap.getOrDefault(keyItem, 0) - );
+            }
         }
+
+
 
         return shoppingCartMap;
     }
@@ -275,8 +281,3 @@ public class CheckoutSolution {
         groupDiscountsMap.put("Z", firstDiscount);
     }
 }
-
-
-
-
-
