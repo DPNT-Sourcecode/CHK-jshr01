@@ -45,8 +45,14 @@ public class CheckoutSolution {
             }
         }
 
-        if(freeItemsMap.containsKey(item)){
-            totalCost += calculateFreeItems(quantity, item, shoppingCartMap);
+        for (Map.Entry<String, Integer> entry : shoppingCartMap.entrySet()) {
+            String item = entry.getKey();
+            Integer quantity = entry.getValue();
+            Integer price = pricesMap.get(item) == null ? 0 : pricesMap.get(item);
+
+            if (freeItemsMap.containsKey(item)) {
+                if(freeItemsMap.get(item).)
+            }
         }
 
 
@@ -164,6 +170,7 @@ public class CheckoutSolution {
         freeItemsMap.put("E", firstDiscount);
     }
 }
+
 
 
 
