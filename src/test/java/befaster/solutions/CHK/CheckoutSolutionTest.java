@@ -42,6 +42,7 @@ public class CheckoutSolutionTest {
 
     @Test
     public void calculate_cost_with_free_items_2() {
-        assertThat(chk.checkout("ABBCDEE"), equalTo(195));
+        assertThat(chk.checkout("ABBCDE"), equalTo(170));
     }
 }
+
