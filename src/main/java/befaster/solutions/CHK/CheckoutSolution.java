@@ -91,9 +91,10 @@ public class CheckoutSolution {
             Map<Integer, String> freeItemsDetailMap = entry.getValue();
 
             for(Map.Entry<Integer, String> subEntry : freeItemsDetailMap.entrySet()){
-                if(shoppingCartMapTemp.get(freeItem) >= subEntry.getKey()){
+                while(shoppingCartMapTemp.get(freeItem) >= subEntry.getKey()){
                     if(shoppingCartMap.get(subEntry.getValue()) != null){
                         shoppingCartMap.put(subEntry.getValue(), shoppingCartMap.getOrDefault(subEntry.getValue(), 0) - 1);
+                        shoppingCartMapTemp.put(subEntry.getValue(), shoppingCartMapTemp.getOrDefault(subEntry.getValue(), 0) - 1);
                     }
                     shoppingCartMapTemp.put(freeItem, shoppingCartMapTemp.get(freeItem) - subEntry.getKey());
                 }
@@ -162,6 +163,7 @@ public class CheckoutSolution {
         freeItemsMap.put("E", firstDiscount);
     }
 }
+
 
 
 
