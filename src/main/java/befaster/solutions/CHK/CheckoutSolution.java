@@ -192,7 +192,7 @@ public class CheckoutSolution {
         pricesMap.put("H", 10);
         pricesMap.put("I", 35);
         pricesMap.put("J", 60);
-        pricesMap.put("K", 80);
+        pricesMap.put("K", 70);
         pricesMap.put("L", 90);
         pricesMap.put("M", 15);
         pricesMap.put("N", 40);
@@ -287,6 +287,7 @@ public class CheckoutSolution {
         groupDiscountsMap.put("Z", firstDiscount);
     }
 }
+
 
 
 
