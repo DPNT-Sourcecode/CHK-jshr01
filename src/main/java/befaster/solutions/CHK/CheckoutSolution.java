@@ -148,6 +148,26 @@ public class CheckoutSolution {
         pricesMap.put("D", 15);
         pricesMap.put("E", 40);
         pricesMap.put("F", 10);
+        pricesMap.put("G", 20);
+        pricesMap.put("H", 10);
+        pricesMap.put("I", 35);
+        pricesMap.put("J", 60);
+        pricesMap.put("K", 80);
+        pricesMap.put("L", 90);
+        pricesMap.put("M", 15);
+        pricesMap.put("N", 40);
+        pricesMap.put("O", 10);
+        pricesMap.put("P", 50);
+        pricesMap.put("Q", 30);
+        pricesMap.put("R", 50);
+        pricesMap.put("S", 30);
+        pricesMap.put("T", 20);
+        pricesMap.put("U", 40);
+        pricesMap.put("V", 50);
+        pricesMap.put("W", 20);
+        pricesMap.put("X", 90);
+        pricesMap.put("Y", 10);
+        pricesMap.put("Z", 50);
     }
 
     /**
@@ -162,6 +182,27 @@ public class CheckoutSolution {
         Map<Integer, Integer> secondDiscount = new HashMap<>();
         secondDiscount.put(2, 45);
         discountsMap.put("B", secondDiscount);
+
+        Map<Integer, Integer> thirdDiscount = new HashMap<>();
+        thirdDiscount.put(5, 45);
+        thirdDiscount.put(10, 80);
+        discountsMap.put("H", thirdDiscount);
+
+        Map<Integer, Integer> fourthDiscount = new HashMap<>();
+        fourthDiscount.put(2, 150);
+        discountsMap.put("K", fourthDiscount);
+
+        Map<Integer, Integer> fifthDiscount = new HashMap<>();
+        fifthDiscount.put(5, 200);
+        discountsMap.put("P", fifthDiscount);
+
+        Map<Integer, Integer> sixthDiscount = new HashMap<>();
+        sixthDiscount.put(3, 80);
+        discountsMap.put("Q", sixthDiscount);
+
+        Map<Integer, Integer> seventhDiscount = new HashMap<>();
+        seventhDiscount.put(3, 80);
+        discountsMap.put("Q", seventhDiscount);
     }
 
     /**
@@ -179,5 +220,6 @@ public class CheckoutSolution {
         freeItemsMap.put("F", secondDiscount);
     }
 }
+
 
 
