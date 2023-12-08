@@ -43,10 +43,10 @@ public class CheckoutSolution {
             }else{
                 totalCost += (price * quantity);
             }
+        }
 
-            if(freeItemsMap.containsKey(item)){
-                totalCost += calculateFreeItems(quantity, item, shoppingCartMap);
-            }
+        if(freeItemsMap.containsKey(item)){
+            totalCost += calculateFreeItems(quantity, item, shoppingCartMap);
         }
 
 
@@ -164,5 +164,6 @@ public class CheckoutSolution {
         freeItemsMap.put("E", firstDiscount);
     }
 }
+
 
 
