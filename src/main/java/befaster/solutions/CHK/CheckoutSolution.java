@@ -10,9 +10,9 @@ import java.util.Map;
 public class CheckoutSolution {
     private final Map<String, Integer> pricesMap = new HashMap<>();
 
-    private final Map<String, List<Integer>> discountsMap = new HashMap<>();
+    private final Map<String, Map<Integer, Integer>> discountsMap = new HashMap<>();
 
-    private final Map<String, List<Integer>> FreeItemsMap = new HashMap<>();
+    private final Map<String, Map<Integer, Integer>> freeItemsMap = new HashMap<>();
 
     public Integer checkout(String skus) {
         // - For any illegal input return -1
@@ -94,11 +94,11 @@ public class CheckoutSolution {
         //List with following structure: quantity, price. Note: This should all be done with external classes,
         //but lets do that in the same file for simplicity and prevent errors on test platform
 
-        List<Integer> firstDiscount = new ArrayList<>();
+        Map<Integer, Integer> firstDiscount = new HashMap<>();
         //quantity
-        firstDiscount.add(3);
+        firstDiscount.put(3, 130);
         //price
-        firstDiscount.add(130);
+        firstDiscount.put(5, 200);
         discountsMap.put("A", firstDiscount);
 
         List<Integer> secondDiscount = new ArrayList<>();
@@ -109,6 +109,7 @@ public class CheckoutSolution {
         discountsMap.put("B", secondDiscount);
     }
 }
+
 
 
 
