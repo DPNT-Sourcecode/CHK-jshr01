@@ -36,14 +36,18 @@ public class CheckoutSolution {
 
             if(discountsMap.containsKey(item)){
                 List<Integer> discount = discountsMap.get(item);
-                int quantity = 
-            }
+                Integer quantityDiscount = discount.get(0);
+                Integer priceDiscount = discount.get(1);
 
-            totalCost += (price * quantity);
+                totalCost += (quantity / quantityDiscount) * priceDiscount;
+                totalCost += (quantity % quantityDiscount) * price;
+            }else{
+                totalCost += (price * quantity);
+            }
         }
 
 
-        return -1;
+        return totalCost;
     }
 
     /**
@@ -99,6 +103,7 @@ public class CheckoutSolution {
         discountsMap.put("B", secondDiscount);
     }
 }
+
 
 
 
