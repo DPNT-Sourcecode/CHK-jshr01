@@ -94,8 +94,13 @@ public class CheckoutSolution {
                 if(shoppingCartMapTemp.containsKey(freeItem)){
                     while(shoppingCartMapTemp.get(freeItem) >= subEntry.getKey()){
                         if(shoppingCartMap.get(subEntry.getValue()) != null){
-                            //check minimum need for offer
-                            if(shoppingCartMapTemp.get(freeItem) - subEntry.getKey() > 0) {
+                            //check minimum need for offer when its the own product to offer
+                            if(freeItem.equalsIgnoreCase(subEntry.getValue())) {
+                                if(shoppingCartMapTemp.get(freeItem) - subEntry.getKey() > 0){
+                                    shoppingCartMap.put(subEntry.getValue(), shoppingCartMap.getOrDefault(subEntry.getValue(), 0) - 1);
+                                    shoppingCartMapTemp.put(subEntry.getValue(), shoppingCartMapTemp.getOrDefault(subEntry.getValue(), 0) - 1);
+                                }
+                            }else{
                                 shoppingCartMap.put(subEntry.getValue(), shoppingCartMap.getOrDefault(subEntry.getValue(), 0) - 1);
                                 shoppingCartMapTemp.put(subEntry.getValue(), shoppingCartMapTemp.getOrDefault(subEntry.getValue(), 0) - 1);
                             }
@@ -174,4 +179,5 @@ public class CheckoutSolution {
         freeItemsMap.put("F", secondDiscount);
     }
 }
+
 
