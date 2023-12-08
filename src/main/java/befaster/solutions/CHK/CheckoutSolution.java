@@ -87,7 +87,7 @@ public class CheckoutSolution {
         pricesMap.put("B", 30);
         pricesMap.put("C", 20);
         pricesMap.put("D", 15);
-        pricesMap.put("E", 15);
+        pricesMap.put("E", 40);
     }
 
     private void populateDiscountsMap(){
@@ -109,5 +109,6 @@ public class CheckoutSolution {
         discountsMap.put("B", secondDiscount);
     }
 }
+
 
 
