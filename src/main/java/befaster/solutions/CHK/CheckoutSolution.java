@@ -138,12 +138,16 @@ public class CheckoutSolution {
 
 //        if(totalGroupDiscountsUnits % 3 > 0){
             for (String keyItem : groupDiscountsMap.keySet()) {
+                if(unitsToRemove <= 0)
+                    break;
 
                 if(shoppingCartMap.getOrDefault(keyItem, 0) - unitsToRemove < 0){
                     unitsToRemove -= shoppingCartMap.getOrDefault(keyItem, 0);
                     shoppingCartMap.put(keyItem, 0);
                 }else{
+                    Integer unitsToRemoveTemp = shoppingCartMap.getOrDefault(keyItem, 0) - unitsToRemove;
                     shoppingCartMap.put(keyItem, shoppingCartMap.getOrDefault(keyItem, 0) - unitsToRemove);
+                    unitsToRemove -= unitsToRemoveTemp;
                 }
             }
 //        }
@@ -284,6 +288,7 @@ public class CheckoutSolution {
         groupDiscountsMap.put("Z", firstDiscount);
     }
 }
+
 
 
 

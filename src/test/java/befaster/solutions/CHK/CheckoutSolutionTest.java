@@ -122,8 +122,14 @@ public class CheckoutSolutionTest {
 
     @Test
     public void calculate_cost_with_buy_any_of_3_products_diff_plus1() {
-        assertThat(chk.checkout("STXYX"), equalTo(62));
+        assertThat(chk.checkout("STXY"), equalTo(65));
+    }
+
+    @Test
+    public void calculate_cost_with_buy_any_of_3_products_diff_plus2() {
+        assertThat(chk.checkout("STXYX"), equalTo(82));
     }
 }
+
 
 
