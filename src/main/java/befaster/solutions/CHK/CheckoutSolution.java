@@ -136,7 +136,7 @@ public class CheckoutSolution {
         shoppingCartMap.put("PROMO_3_45", totalGroups);
         Integer unitsToRemove = totalGroups * 3;
 
-//        if(totalGroupDiscountsUnits % 3 > 0){
+
             for (String keyItem : groupDiscountsMap.keySet()) {
                 if(unitsToRemove <= 0)
                     break;
@@ -149,7 +149,7 @@ public class CheckoutSolution {
                     unitsToRemove = 0;
                 }
             }
-//        }
+
 
         return shoppingCartMap;
     }
@@ -287,6 +287,7 @@ public class CheckoutSolution {
         groupDiscountsMap.put("Z", firstDiscount);
     }
 }
+
 
 
 

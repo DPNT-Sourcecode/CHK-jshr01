@@ -129,7 +129,23 @@ public class CheckoutSolutionTest {
     public void calculate_cost_with_buy_any_of_3_products_diff_plus2() {
         assertThat(chk.checkout("STXYX"), equalTo(82));
     }
+
+    @Test
+    public void calculate_cost_with_buy_any_of_6_products() {
+        assertThat(chk.checkout("STXYXY"), equalTo(90));
+    }
+
+    @Test
+    public void calculate_cost_with_buy_any_of_6_products_eq() {
+        assertThat(chk.checkout("SSSSSS"), equalTo(90));
+    }
+
+    @Test
+    public void calculate_cost_with_buy_any_of_6_products_plus_1() {
+        assertThat(chk.checkout("SSSSSSA"), equalTo(140));
+    }
 }
+
 
 
 
