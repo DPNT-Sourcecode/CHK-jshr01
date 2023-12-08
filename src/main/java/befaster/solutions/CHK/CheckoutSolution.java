@@ -89,19 +89,17 @@ public class CheckoutSolution {
             for (Map.Entry<Integer, String> entry : freeItemsDetailMap.entrySet()) {
                 Integer quantityForDiscount = entry.getKey();
                 String itemToOffer = entry.getValue();
+
+                Integer freeItemTotal = quantity / quantityForDiscount;
+                totalCostToDiscount += freeItemTotal;
+
+                if(freeItemTotal > 0 && pricesMap.containsKey(itemToOffer)){
+                    shop
+                }
             }
         }
 
-        for (Integer discountQtt : sortedQuantities) {
-            Integer priceDiscount = itemDiscountsMap.get(discountQtt);
-            Integer discounts = quantity / discountQtt;
-            totalCost += discounts * priceDiscount;
-            quantity %= discountQtt;
-        }
-
-        totalCost += quantity * price;
-
-        return totalCost;
+        return totalCostToDiscount;
     }
 
     /**
@@ -163,6 +161,7 @@ public class CheckoutSolution {
         freeItemsMap.put("E", firstDiscount);
     }
 }
+
 
 
 
