@@ -90,7 +90,15 @@ public class CheckoutSolution {
             Map<Integer, String> freeItemsDetailMap = entry.getValue();
 
             for(Map.Entry<Integer, String> subEntry : freeItemsDetailMap.entrySet()){
-                if(shoppingCartMapTemp.get(freeItem) >= subEntry.getKey())
+                if(shoppingCartMapTemp.get(freeItem) >= subEntry.getKey()){
+                    if(shoppingCartMap.get(subEntry.getKey()) != null){
+
+                    }
+                    shoppingCartMap.put()
+
+
+
+                }
             }
 
 
@@ -197,4 +205,5 @@ public class CheckoutSolution {
         freeItemsMap.put("E", firstDiscount);
     }
 }
+
 
