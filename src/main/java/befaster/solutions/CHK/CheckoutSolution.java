@@ -2,10 +2,7 @@ package befaster.solutions.CHK;
 
 import befaster.runner.SolutionNotImplementedException;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class CheckoutSolution {
     private final Map<String, Integer> pricesMap = new HashMap<>();
@@ -51,15 +48,29 @@ public class CheckoutSolution {
         return totalCost;
     }
 
+    /**
+     * calculate quantity discounts
+     * @param quantity
+     * @param price
+     * @param itemDiscountsMap
+     * @return
+     */
     private Integer calculateDiscounts(Integer quantity, Integer price, Map<Integer, Integer> itemDiscountsMap){
         Integer totalCost = 0;
-        List<Integer> sortedQuantities = new ArrayList(discountsMap.keySet());
+        List<Integer> sortedQuantities = new ArrayList(itemDiscountsMap.keySet());
+        //more quantities first
+        Collections.sort(sortedQuantities, Collections.reverseOrder());
 
+        for (Integer discountQtt : sortedQuantities) {
+            Integer priceDiscount = itemDiscountsMap.get(discountQtt);
+            Integer discounts = quantity / discountQtt;
+            totalCost += discounts * priceDiscount;
+            quantity %= discountQtt;
+        }
 
-        Integer quantityDiscount = itemDiscountsMap.get(quantity);
-        Integer priceDiscount = itemDiscountsMap.get(price);
+        totalCost += quantity * price;
 
-        return 0;
+        return totalCost;
     }
 
     /**
@@ -97,6 +108,9 @@ public class CheckoutSolution {
         pricesMap.put("E", 40);
     }
 
+    /**
+     * initialize with discounts
+     */
     private void populateDiscountsMap(){
         //List with following structure: quantity, price. Note: This should all be done with external classes,
         //but lets do that in the same file for simplicity and prevent errors on test platform
@@ -111,10 +125,3 @@ public class CheckoutSolution {
         discountsMap.put("B", secondDiscount);
     }
 }
-
-
-
-
-
-
-
