@@ -56,6 +56,11 @@ public class CheckoutSolutionTest {
     }
 
     @Test
+    public void calculate_cost_with_one_E() {
+        assertThat(chk.checkout("BE"), equalTo(70));
+    }
+
+    @Test
     public void calculate_cost_with_E_and_B() {
         assertThat(chk.checkout("EEEEBB"), equalTo(160));
     }
@@ -79,7 +84,13 @@ public class CheckoutSolutionTest {
     public void calculate_cost_with_F_and_E() {
         assertThat(chk.checkout("AFFFEEB"), equalTo(150));
     }
+
+    @Test
+    public void calculate_cost_with_one_F() {
+        assertThat(chk.checkout("AF"), equalTo(60));
+    }
 }
+
 
 
 
