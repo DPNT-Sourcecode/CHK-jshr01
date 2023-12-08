@@ -131,6 +131,8 @@ public class CheckoutSolution {
             totalGroupDiscountsUnits += shoppingCartMap.getOrDefault(keyItem, 0);
         }
 
+        Integer totalGroupDiscountsUnits / 3
+
         return shoppingCartMap;
     }
 
@@ -180,14 +182,14 @@ public class CheckoutSolution {
         pricesMap.put("P", 50);
         pricesMap.put("Q", 30);
         pricesMap.put("R", 50);
-        pricesMap.put("S", 30);
+        pricesMap.put("S", 20);
         pricesMap.put("T", 20);
         pricesMap.put("U", 40);
         pricesMap.put("V", 50);
         pricesMap.put("W", 20);
-        pricesMap.put("X", 90);
-        pricesMap.put("Y", 10);
-        pricesMap.put("Z", 50);
+        pricesMap.put("X", 17);
+        pricesMap.put("Y", 20);
+        pricesMap.put("Z", 21);
     }
 
     /**
@@ -266,5 +268,6 @@ public class CheckoutSolution {
         groupDiscountsMap.put("Z", firstDiscount);
     }
 }
+
 
 
