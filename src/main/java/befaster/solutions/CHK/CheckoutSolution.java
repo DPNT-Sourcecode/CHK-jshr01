@@ -2,13 +2,15 @@ package befaster.solutions.CHK;
 
 import befaster.runner.SolutionNotImplementedException;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class CheckoutSolution {
     private final Map<String, Integer> pricesMap = new HashMap<>();
 
-    private final Map<String, Integer> discountsMap = new HashMap<>();
+    private final Map<String, List<Integer>> discountsMap = new HashMap<>();
 
     public Integer checkout(String skus) {
         if(skus == null || skus.isEmpty()){
@@ -16,6 +18,7 @@ public class CheckoutSolution {
         }
 
         populatePricesMap();
+        populateDiscountsMap();
 
         Map<String, Integer> shoppingCartMap = parsedSkus(skus);
 
@@ -71,6 +74,26 @@ public class CheckoutSolution {
         pricesMap.put("C", 20);
         pricesMap.put("D", 15);
     }
+
+    private void populateDiscountsMap(){
+        //List with following structure: quantity, price. Note: This should all be done with external classes,
+        //but lets do that in the same file for simplicity and prevent errors on test platform
+
+        List<Integer> firstDiscount = new ArrayList<>();
+        //quantity
+        firstDiscount.add(3);
+        //price
+        firstDiscount.add(130);
+        discountsMap.put("A", firstDiscount);
+
+        List<Integer> secondDiscount = new ArrayList<>();
+        //quantity
+        secondDiscount.add(2);
+        //price
+        secondDiscount.add(45);
+        discountsMap.put("B", secondDiscount);
+    }
 }
+
 
 
