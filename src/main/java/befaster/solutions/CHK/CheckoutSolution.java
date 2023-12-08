@@ -11,6 +11,8 @@ public class CheckoutSolution {
 
     private final Map<String, Map<Integer, String>> freeItemsMap = new HashMap<>();
 
+    private final Map<String, Map<Integer, Integer>> groupDiscountsMap = new HashMap<>();
+
     public Integer checkout(String skus) {
         // - For any illegal input return -1
         if(skus == null){
@@ -115,6 +117,24 @@ public class CheckoutSolution {
     }
 
     /**
+     * calculate Group Discounts
+     * @param shoppingCartMap
+     * @return Map<String, Integer> with removed group discounted items
+     */
+    private Map<String, Integer> calculateGroupDiscounts(Map<String, Integer> shoppingCartMap){
+        Map<String, Integer> shoppingCartMapTemp = new HashMap<>();
+        shoppingCartMapTemp.putAll(shoppingCartMap);
+
+        Integer totalGroupDiscountsUnits = 0;
+
+        for (String keyItem : groupDiscountsMap.keySet()) {
+            totalGroupDiscountsUnits += shoppingCartMap.getOrDefault(keyItem, 0);
+        }
+
+        return shoppingCartMap;
+    }
+
+    /**
      * Parse sku string
      * @param skus, string with skus to parse
      * @return shopping cart map if string is totally parsed, and null if there's any invalid sku code in it
@@ -204,29 +224,6 @@ public class CheckoutSolution {
         seventhDiscount.put(2, 90);
         seventhDiscount.put(3, 130);
         discountsMap.put("V", seventhDiscount);
-
-        Map<Integer, Integer> eigththDiscount = new HashMap<>();
-        eigththDiscount.put(3, 45);
-        discountsMap.put("SSS",eigththDiscount);
-        discountsMap.put("SST",eigththDiscount);
-        discountsMap.put("SSX",eigththDiscount);
-        discountsMap.put("SSY",eigththDiscount);
-        discountsMap.put("STX",eigththDiscount);
-        discountsMap.put("SSZ",eigththDiscount);
-        discountsMap.put("TTT",eigththDiscount);
-        discountsMap.put("TTX",eigththDiscount);
-        discountsMap.put("TTY",eigththDiscount);
-        discountsMap.put("TTZ",eigththDiscount);
-        discountsMap.put("XXX",eigththDiscount);
-        discountsMap.put("XXY",eigththDiscount);
-        discountsMap.put("XXZ",eigththDiscount);
-        discountsMap.put("XYY",eigththDiscount);
-        discountsMap.put("XYZ",eigththDiscount);
-        discountsMap.put("XZZ",eigththDiscount);
-        discountsMap.put("YYY",eigththDiscount);
-        discountsMap.put("YYZ",eigththDiscount);
-        discountsMap.put("YZZ",eigththDiscount);
-        discountsMap.put("ZZZ",eigththDiscount);
     }
 
     /**
@@ -255,5 +252,19 @@ public class CheckoutSolution {
         fifthDiscount.put(3, "U");
         freeItemsMap.put("U", fifthDiscount);
     }
+
+    /**
+     * initialize with group discounts
+     */
+    private void populateGroupDiscountsMap() {
+        Map<Integer, Integer> firstDiscount = new HashMap<>();
+        firstDiscount.put(3, 45);
+        groupDiscountsMap.put("S", firstDiscount);
+        groupDiscountsMap.put("T", firstDiscount);
+        groupDiscountsMap.put("X", firstDiscount);
+        groupDiscountsMap.put("Y", firstDiscount);
+        groupDiscountsMap.put("Z", firstDiscount);
+    }
 }
+
 
