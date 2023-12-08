@@ -120,6 +120,3 @@ public class CheckoutSolutionTest {
         assertThat(chk.checkout("STX"), equalTo(45));
     }
 }
-
-
-
