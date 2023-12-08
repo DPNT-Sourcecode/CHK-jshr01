@@ -27,7 +27,6 @@ public class CheckoutSolution {
     /**
      * Parse sku string
      * @param skus, string with skus to parse
-     * @param shoppingCartMap, map with items on cart
      * @return shopping cart map if string is totally parsed, and null if there's any invalid sku code in it
      */
     private Map<String, Integer> parsedSkus(String skus){
@@ -56,7 +55,3 @@ public class CheckoutSolution {
         pricesMap.put("D", 15);
     }
 }
-
-
-
-
