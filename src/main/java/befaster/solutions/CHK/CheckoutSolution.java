@@ -95,6 +95,7 @@ public class CheckoutSolution {
                     Integer freeItemTotal = shoppingCartMap.get(freeItem) / quantityNeedForFree;
 
                     if(freeItemTotal > 0 && pricesMap.containsKey(itemToOffer)){
+                        shoppingCartMap.put(itemToOffer, shoppingCartMap.getOrDefault(itemToOffer, 0) - freeItemTotal);
                         totalCostToDiscount -= freeItemTotal * pricesMap.get(itemToOffer);
                     }
                 }
@@ -164,3 +165,4 @@ public class CheckoutSolution {
         freeItemsMap.put("E", firstDiscount);
     }
 }
+
