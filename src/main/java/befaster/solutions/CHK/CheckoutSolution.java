@@ -35,6 +35,7 @@ public class CheckoutSolution {
 
         shoppingCartMap = calculateFreeItems(shoppingCartMap);
 
+        shoppingCartMap = calculateGroupDiscounts(shoppingCartMap);
 
         Integer totalCost = 0;
 
@@ -137,13 +138,14 @@ public class CheckoutSolution {
         if(totalGroupDiscountsUnits % 3 > 0){
             for (String keyItem : groupDiscountsMap.keySet()) {
 
-                if(shoppingCartMap.getOrDefault(keyItem, 0) - totalGroupDiscountsUnits)
-
-                shoppingCartMap.put(keyItem, shoppingCartMap.getOrDefault(keyItem, 0) - );
+                if(shoppingCartMap.getOrDefault(keyItem, 0) - totalGroupDiscountsUnits < 0){
+                    totalGroupDiscountsUnits -= shoppingCartMap.getOrDefault(keyItem, 0);
+                    shoppingCartMap.put(keyItem, 0);
+                }else{
+                    shoppingCartMap.put(keyItem, shoppingCartMap.getOrDefault(keyItem, 0) - totalGroupDiscountsUnits);
+                }
             }
         }
-
-
 
         return shoppingCartMap;
     }
@@ -281,3 +283,4 @@ public class CheckoutSolution {
         groupDiscountsMap.put("Z", firstDiscount);
     }
 }
+
