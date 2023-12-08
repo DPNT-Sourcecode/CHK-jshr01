@@ -69,6 +69,9 @@ public class CheckoutSolutionTest {
     public void calculate_cost_with_all_chars() {
         assertThat(chk.checkout("ABCDEABCDE"), equalTo(280));
     }
+
+    @Test
+    public void calculate_cost_with_F() {
+        assertThat(chk.checkout("FF"), equalTo(20));
+    }
 }
-
-

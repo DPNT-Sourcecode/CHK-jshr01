@@ -139,6 +139,7 @@ public class CheckoutSolution {
         pricesMap.put("C", 20);
         pricesMap.put("D", 15);
         pricesMap.put("E", 40);
+        pricesMap.put("F", 10);
     }
 
     /**
@@ -163,11 +164,10 @@ public class CheckoutSolution {
         Map<Integer, String> firstDiscount = new HashMap<>();
         firstDiscount.put(2, "B");
         freeItemsMap.put("E", firstDiscount);
+
+        //For 2 F, get one F free
+        Map<Integer, String> secondDiscount = new HashMap<>();
+        secondDiscount.put(2, "F");
+        freeItemsMap.put("F", secondDiscount);
     }
 }
-
-
-
-
-
-
