@@ -95,10 +95,21 @@ public class CheckoutSolution {
                     if(shoppingCartMap.containsKey(itemToOffer) && shoppingCartMap.get(itemToOffer) > 0){
                         Integer freeItemTotal = shoppingCartMap.get(freeItem) / quantityNeedForFree;
 
-                        if(freeItemTotal > 0 && pricesMap.containsKey(itemToOffer)){
-                            shoppingCartMap.put(itemToOffer, shoppingCartMap.getOrDefault(itemToOffer, 0) - freeItemTotal);
-                            totalCostToDiscount -= freeItemTotal * pricesMap.get(itemToOffer);
+                        if(freeItemTotal > 0){
+                            Integer priceForFreeItem = 0;
+                            if(pricesMap.containsKey(itemToOffer)){
+                                priceForFreeItem = pricesMap.get(itemToOffer);
+                            }else{
+                                if(discountsMap.containsKey(itemToOffer)){
+                                    priceForFreeItem = calculateDiscounts(1, 0, discountsMap.get(itemToOffer));
+                                }
+                            }
+                            if(priceForFreeItem > 0) {
+                                shoppingCartMap.put(itemToOffer, shoppingCartMap.getOrDefault(itemToOffer, 0) - freeItemTotal);
+                                totalCostToDiscount -= freeItemTotal * pricesMap.get(itemToOffer);
+                            }
                         }
+
                     }
                 }
 
@@ -167,5 +178,6 @@ public class CheckoutSolution {
         freeItemsMap.put("E", firstDiscount);
     }
 }
+
 
 
