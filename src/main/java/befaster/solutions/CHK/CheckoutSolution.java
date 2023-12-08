@@ -13,13 +13,19 @@ public class CheckoutSolution {
             return -1;
         }
 
-
-
         populatePricesMap();
 
-        if(parsedSkus(skus) == null){
+        Map<String, Integer> shoppingCartMap = parsedSkus(skus);
+
+        if(shoppingCartMap == null){
             return -1;
         }
+
+        for (Map.Entry<String, Integer> entry : shoppingCartMap.entrySet()) {
+            String item = entry.getKey();
+            Integer quantity = entry.getValue();
+        }
+
 
         return -1;
     }
@@ -35,7 +41,10 @@ public class CheckoutSolution {
 
         for(int i = 0; i < skus.length(); i++){
             if(pricesMap.get(skus.charAt(i)+"") != null){
-                pricesMap.get(skus.charAt(i)+"");
+                //for more readability
+                String item = skus.charAt(i)+"";
+                //increase quantity
+                shoppingCartMap.put(item, shoppingCartMap.getOrDefault(item, 0) + 1);
             }else{
                 return null;
             }
@@ -55,3 +64,4 @@ public class CheckoutSolution {
         pricesMap.put("D", 15);
     }
 }
+
