@@ -9,7 +9,7 @@ public class CheckoutSolution {
 
     private final Map<String, Map<Integer, Integer>> discountsMap = new HashMap<>();
 
-    private final Map<String, Map<Integer, Integer>> freeItemsMap = new HashMap<>();
+    private final Map<String, Map<Integer, String>> freeItemsMap = new HashMap<>();
 
     public Integer checkout(String skus) {
         // - For any illegal input return -1
@@ -19,8 +19,10 @@ public class CheckoutSolution {
             return 0;
         }
 
+        //populate data
         populatePricesMap();
         populateDiscountsMap();
+        populateFreeItemsMap();
 
         Map<String, Integer> shoppingCartMap = parsedSkus(skus);
 
@@ -53,9 +55,33 @@ public class CheckoutSolution {
      * @param quantity
      * @param price
      * @param itemDiscountsMap
-     * @return
+     * @return totalCost
      */
     private Integer calculateDiscounts(Integer quantity, Integer price, Map<Integer, Integer> itemDiscountsMap){
+        Integer totalCost = 0;
+        List<Integer> sortedQuantities = new ArrayList(itemDiscountsMap.keySet());
+        //more quantities first
+        Collections.sort(sortedQuantities, Collections.reverseOrder());
+
+        for (Integer discountQtt : sortedQuantities) {
+            Integer priceDiscount = itemDiscountsMap.get(discountQtt);
+            Integer discounts = quantity / discountQtt;
+            totalCost += discounts * priceDiscount;
+            quantity %= discountQtt;
+        }
+
+        totalCost += quantity * price;
+
+        return totalCost;
+    }
+
+    /**
+     * calculate free items
+     * @param quantity
+     * @param item
+     * @return totalCost
+     */
+    private Integer calculateFreeItems(Integer quantity, String item){
         Integer totalCost = 0;
         List<Integer> sortedQuantities = new ArrayList(itemDiscountsMap.keySet());
         //more quantities first
@@ -112,9 +138,6 @@ public class CheckoutSolution {
      * initialize with discounts
      */
     private void populateDiscountsMap(){
-        //List with following structure: quantity, price. Note: This should all be done with external classes,
-        //but lets do that in the same file for simplicity and prevent errors on test platform
-
         Map<Integer, Integer> firstDiscount = new HashMap<>();
         firstDiscount.put(3, 130);
         firstDiscount.put(5, 200);
@@ -124,4 +147,16 @@ public class CheckoutSolution {
         secondDiscount.put(2, 45);
         discountsMap.put("B", secondDiscount);
     }
+
+    /**
+     * initialize with free items
+     */
+    private void populateFreeItemsMap(){
+
+        //For 2 E, get one B free
+        Map<Integer, String> firstDiscount = new HashMap<>();
+        firstDiscount.put(2, "B");
+        freeItemsMap.put("E", firstDiscount);
+    }
 }
+
