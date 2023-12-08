@@ -207,11 +207,26 @@ public class CheckoutSolution {
 
         Map<Integer, Integer> eigththDiscount = new HashMap<>();
         eigththDiscount.put(3, 45);
-        discountsMap.put("S", eigththDiscount);
-        discountsMap.put("T", eigththDiscount);
-        discountsMap.put("X", eigththDiscount);
-        discountsMap.put("Y", eigththDiscount);
-        discountsMap.put("Z", eigththDiscount);
+        discountsMap.put("SSS",eigththDiscount);
+        discountsMap.put("SST",eigththDiscount);
+        discountsMap.put("SSX",eigththDiscount);
+        discountsMap.put("SSY",eigththDiscount);
+        discountsMap.put("STX",eigththDiscount);
+        discountsMap.put("SSZ",eigththDiscount);
+        discountsMap.put("TTT",eigththDiscount);
+        discountsMap.put("TTX",eigththDiscount);
+        discountsMap.put("TTY",eigththDiscount);
+        discountsMap.put("TTZ",eigththDiscount);
+        discountsMap.put("XXX",eigththDiscount);
+        discountsMap.put("XXY",eigththDiscount);
+        discountsMap.put("XXZ",eigththDiscount);
+        discountsMap.put("XYY",eigththDiscount);
+        discountsMap.put("XYZ",eigththDiscount);
+        discountsMap.put("XZZ",eigththDiscount);
+        discountsMap.put("YYY",eigththDiscount);
+        discountsMap.put("YYZ",eigththDiscount);
+        discountsMap.put("YZZ",eigththDiscount);
+        discountsMap.put("ZZZ",eigththDiscount);
     }
 
     /**
@@ -241,3 +256,4 @@ public class CheckoutSolution {
         freeItemsMap.put("U", fifthDiscount);
     }
 }
+
