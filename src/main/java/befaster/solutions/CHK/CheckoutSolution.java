@@ -13,12 +13,11 @@ public class CheckoutSolution {
             return -1;
         }
 
-        //item / quantity
-        Map<String, Integer> shoppingCartMap = new HashMap<>();
+
 
         populatePricesMap();
 
-        if(!parsedSkus(skus, shoppingCartMap)){
+        if(parsedSkus(skus) == null){
             return -1;
         }
 
@@ -29,18 +28,21 @@ public class CheckoutSolution {
      * Parse sku string
      * @param skus, string with skus to parse
      * @param shoppingCartMap, map with items on cart
-     * @return true is string is totally parsed, and false if there's any invalid sku code in it
+     * @return shopping cart map if string is totally parsed, and null if there's any invalid sku code in it
      */
-    private boolean parsedSkus(String skus, Map<String, Integer> shoppingCartMap){
+    private Map<String, Integer> parsedSkus(String skus){
+        //item / quantity
+        Map<String, Integer> shoppingCartMap = new HashMap<>();
+
         for(int i = 0; i < skus.length(); i++){
             if(pricesMap.get(skus.charAt(i)+"") != null){
                 pricesMap.get(skus.charAt(i)+"");
             }else{
-                return false;
+                return null;
             }
         }
 
-        return true;
+        return shoppingCartMap;
     }
 
 
@@ -54,6 +56,7 @@ public class CheckoutSolution {
         pricesMap.put("D", 15);
     }
 }
+
 
 
 
