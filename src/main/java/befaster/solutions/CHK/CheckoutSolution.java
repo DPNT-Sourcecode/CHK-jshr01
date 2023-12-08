@@ -25,13 +25,13 @@ public class CheckoutSolution {
         populatePricesMap();
         populateDiscountsMap();
         populateFreeItemsMap();
+        populateGroupDiscountsMap();
 
         Map<String, Integer> shoppingCartMap = parsedSkus(skus);
 
         if(shoppingCartMap == null){
             return -1;
         }
-
 
         shoppingCartMap = calculateFreeItems(shoppingCartMap);
 
@@ -131,7 +131,11 @@ public class CheckoutSolution {
             totalGroupDiscountsUnits += shoppingCartMap.getOrDefault(keyItem, 0);
         }
 
-        Integer totalGroupDiscountsUnits / 3
+        Integer totalGroups = totalGroupDiscountsUnits / 3;
+
+        for (String keyItem : groupDiscountsMap.keySet()) {
+            totalGroupDiscountsUnits += shoppingCartMap.getOrDefault(keyItem, 0);
+        }
 
         return shoppingCartMap;
     }
@@ -268,6 +272,7 @@ public class CheckoutSolution {
         groupDiscountsMap.put("Z", firstDiscount);
     }
 }
+
 
 
 
