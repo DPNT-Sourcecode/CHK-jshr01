@@ -85,7 +85,11 @@ public class CheckoutSolution {
         Integer totalCostToDiscount = 0;
 
         if(freeItemsMap.containsKey(item)){
-            
+            Map<Integer, String> freeItemsDetailMap = freeItemsMap.get(item);
+            for (Map.Entry<Integer, String> entry : freeItemsDetailMap.entrySet()) {
+                Integer quantityForDiscount = entry.getKey();
+                String itemToOffer = entry.getValue();
+            }
         }
 
         for (Integer discountQtt : sortedQuantities) {
@@ -153,12 +157,12 @@ public class CheckoutSolution {
      * initialize with free items
      */
     private void populateFreeItemsMap(){
-
         //For 2 E, get one B free
         Map<Integer, String> firstDiscount = new HashMap<>();
         firstDiscount.put(2, "B");
         freeItemsMap.put("E", firstDiscount);
     }
 }
+
 
 
