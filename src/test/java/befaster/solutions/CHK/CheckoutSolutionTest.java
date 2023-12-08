@@ -92,6 +92,12 @@ public class CheckoutSolutionTest {
 
     @Test
     public void calculate_cost_with_20_products() {
-        assertThat(chk.checkout("ABCDEFGHIJKLMNOPQRST"), equalTo(670));
+        assertThat(chk.checkout("ABCDEFGHIJKLMNOPQRST"), equalTo(705));
+    }
+
+    @Test
+    public void calculate_cost_with_multiple_products() {
+        assertThat(chk.checkout("ABCEEPPPPPQ"), equalTo(380));
     }
 }
+
