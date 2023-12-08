@@ -11,7 +11,7 @@ public class CheckoutSolution {
 
     private final Map<String, Map<Integer, String>> freeItemsMap = new HashMap<>();
 
-    private final Map<String, Map<Integer, Integer>> groupDiscountsMap = new HashMap<>();
+    private final Map<String, Map<Integer, Integer>> groupDiscountsMap = new LinkedHashMap<>();
 
     public Integer checkout(String skus) {
         // - For any illegal input return -1
@@ -288,4 +288,5 @@ public class CheckoutSolution {
         groupDiscountsMap.put("X", firstDiscount);
     }
 }
+
 
