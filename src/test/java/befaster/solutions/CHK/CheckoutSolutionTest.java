@@ -96,8 +96,19 @@ public class CheckoutSolutionTest {
     }
 
     @Test
-    public void calculate_cost_with_multiple_products() {
+    public void calculate_cost_with_multiple_products_and_free_items() {
         assertThat(chk.checkout("ABCEEPPPPPQ"), equalTo(380));
     }
+
+    @Test
+    public void calculate_cost_with_multiple_products_and_discounts_2() {
+        assertThat(chk.checkout("ABCEPPPPPQ"), equalTo(370));
+    }
+
+    @Test
+    public void calculate_cost_with_multiple_products_and_discounts_3() {
+        assertThat(chk.checkout("ABCERRRQ"), equalTo(290));
+    }
 }
+
 
