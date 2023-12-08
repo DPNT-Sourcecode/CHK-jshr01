@@ -106,9 +106,3 @@ public class CheckoutSolution {
         discountsMap.put("B", secondDiscount);
     }
 }
-
-
-
-
-
-

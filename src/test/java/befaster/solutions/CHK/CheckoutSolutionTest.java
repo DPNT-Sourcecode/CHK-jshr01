@@ -35,4 +35,3 @@ public class CheckoutSolutionTest {
         assertThat(chk.checkout(""), equalTo(0));
     }
 }
-
