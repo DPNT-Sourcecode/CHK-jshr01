@@ -12,6 +12,8 @@ public class CheckoutSolution {
 
     private final Map<String, List<Integer>> discountsMap = new HashMap<>();
 
+    private final Map<String, List<Integer>> FreeItemsMap = new HashMap<>();
+
     public Integer checkout(String skus) {
         // - For any illegal input return -1
         if(skus == null){
@@ -107,4 +109,5 @@ public class CheckoutSolution {
         discountsMap.put("B", secondDiscount);
     }
 }
+
 
