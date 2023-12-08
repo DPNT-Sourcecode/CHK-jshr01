@@ -145,9 +145,8 @@ public class CheckoutSolution {
                     unitsToRemove -= shoppingCartMap.getOrDefault(keyItem, 0);
                     shoppingCartMap.put(keyItem, 0);
                 }else{
-                    Integer unitsToRemoveTemp = shoppingCartMap.getOrDefault(keyItem, 0) - unitsToRemove;
                     shoppingCartMap.put(keyItem, shoppingCartMap.getOrDefault(keyItem, 0) - unitsToRemove);
-                    unitsToRemove -= unitsToRemoveTemp;
+                    unitsToRemove = 0;
                 }
             }
 //        }
@@ -288,6 +287,7 @@ public class CheckoutSolution {
         groupDiscountsMap.put("Z", firstDiscount);
     }
 }
+
 
 
 
