@@ -280,10 +280,12 @@ public class CheckoutSolution {
     private void populateGroupDiscountsMap() {
         Map<Integer, Integer> firstDiscount = new HashMap<>();
         firstDiscount.put(3, 45);
+        //sort by more expensive first
+        groupDiscountsMap.put("Z", firstDiscount);
         groupDiscountsMap.put("S", firstDiscount);
         groupDiscountsMap.put("T", firstDiscount);
-        groupDiscountsMap.put("X", firstDiscount);
         groupDiscountsMap.put("Y", firstDiscount);
-        groupDiscountsMap.put("Z", firstDiscount);
+        groupDiscountsMap.put("X", firstDiscount);
     }
 }
+

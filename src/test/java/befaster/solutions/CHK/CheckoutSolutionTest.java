@@ -144,4 +144,21 @@ public class CheckoutSolutionTest {
     public void calculate_cost_with_buy_any_of_6_products_plus_1() {
         assertThat(chk.checkout("SSSSSSA"), equalTo(140));
     }
+
+    @Test
+    public void calculate_cost_with_buy_any_of_4_products_plus_1_all_diff() {
+        assertThat(chk.checkout("STXZ"), equalTo(62));
+    }
+
+
+    @Test
+    public void calculate_cost_with_buy_any_of_4_products_plus_1() {
+        assertThat(chk.checkout("SSSZ"), equalTo(65));
+    }
+
+    @Test
+    public void calculate_cost_with_buy_any_of_4_products_plus_1_order_2() {
+        assertThat(chk.checkout("ZZZS"), equalTo(65));
+    }
 }
+
