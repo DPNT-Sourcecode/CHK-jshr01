@@ -79,13 +79,14 @@ public class CheckoutSolution {
      * calculate free items
      * @param quantity
      * @param item
-     * @return totalCost
+     * @return totalCostToDiscount
      */
     private Integer calculateFreeItems(Integer quantity, String item){
-        Integer totalCost = 0;
-        List<Integer> sortedQuantities = new ArrayList(itemDiscountsMap.keySet());
-        //more quantities first
-        Collections.sort(sortedQuantities, Collections.reverseOrder());
+        Integer totalCostToDiscount = 0;
+
+        if(freeItemsMap.containsKey(item)){
+            
+        }
 
         for (Integer discountQtt : sortedQuantities) {
             Integer priceDiscount = itemDiscountsMap.get(discountQtt);
@@ -159,4 +160,5 @@ public class CheckoutSolution {
         freeItemsMap.put("E", firstDiscount);
     }
 }
+
 
