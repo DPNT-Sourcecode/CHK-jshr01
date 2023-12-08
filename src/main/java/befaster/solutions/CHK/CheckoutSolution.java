@@ -45,16 +45,7 @@ public class CheckoutSolution {
             }
         }
 
-        for (Map.Entry<String, Integer> entry : shoppingCartMap.entrySet()) {
-            String item = entry.getKey();
-            Integer quantity = entry.getValue();
-            Integer price = pricesMap.get(item) == null ? 0 : pricesMap.get(item);
-
-            if (freeItemsMap.containsKey(item)) {
-                if(freeItemsMap.get(item).)
-            }
-        }
-
+        totalCost += calculateFreeItems(shoppingCartMap);
 
         return totalCost;
     }
@@ -90,8 +81,12 @@ public class CheckoutSolution {
      * @param item
      * @return totalCostToDiscount
      */
-    private Integer calculateFreeItems(Integer quantity, String item, Map<String, Integer> shoppingCartMap){
+    private Integer calculateFreeItems(Map<String, Integer> shoppingCartMap){
         Integer totalCostToDiscount = 0;
+
+        for (Map.Entry<String, Map<Integer, String>> entry: freeItemsMap.entrySet()) {
+            String freeItem = entry.getKey();
+        }
 
         if(freeItemsMap.containsKey(item)){
             Map<Integer, String> freeItemsDetailMap = freeItemsMap.get(item);
@@ -170,6 +165,7 @@ public class CheckoutSolution {
         freeItemsMap.put("E", firstDiscount);
     }
 }
+
 
 
 
