@@ -91,59 +91,15 @@ public class CheckoutSolution {
 
             for(Map.Entry<Integer, String> subEntry : freeItemsDetailMap.entrySet()){
                 if(shoppingCartMapTemp.get(freeItem) >= subEntry.getKey()){
-                    if(shoppingCartMap.get(subEntry.getKey()) != null){
-
+                    if(shoppingCartMap.get(subEntry.getValue()) != null){
+                        shoppingCartMap.put(subEntry.getValue(), shoppingCartMap.getOrDefault(subEntry.getValue(), 0) - subEntry.getKey());
                     }
-                    shoppingCartMap.put()
-
-
-
+                    shoppingCartMapTemp.put(freeItem, shoppingCartMapTemp.get(freeItem) - subEntry.getKey());
                 }
-            }
-
-
-
-
-
-
-
-
-
-
-
-
-            if(shoppingCartMap.containsKey(freeItem) && shoppingCartMap.get(freeItem) > 0){
-                for(Map.Entry<Integer, String> freeItemEntry : freeItemsDetailMap.entrySet()){
-                    Integer quantityNeedForFree = freeItemEntry.getKey();
-                    String itemToOffer = freeItemEntry.getValue();
-
-                    if(shoppingCartMap.containsKey(itemToOffer) && shoppingCartMap.get(itemToOffer) > 0){
-                        Integer freeItemTotal = shoppingCartMap.get(freeItem) / quantityNeedForFree;
-
-                        if(freeItemTotal > 0){
-                            Integer priceForFreeItem = 0;
-                            Integer totalAvailableItemsToOffer = shoppingCartMap.get(itemToOffer);
-
-                            if(totalAvailableItemsToOffer >= quantityNeedForFree && discountsMap.containsKey(itemToOffer)){
-                                Map<Integer, Integer> itemDiscountsMap = discountsMap.get(itemToOffer);
-                                priceForFreeItem += calculateDiscounts(quantityNeedForFree, pricesMap.get(itemToOffer), itemDiscountsMap);
-                            }else{
-                                priceForFreeItem = pricesMap.get(itemToOffer);
-                            }
-
-                            if(priceForFreeItem > 0) {
-                                shoppingCartMap.put(itemToOffer, shoppingCartMap.getOrDefault(itemToOffer, 0) - freeItemTotal);
-                                totalCostToDiscount -= priceForFreeItem;
-                            }
-                        }
-
-                    }
-                }
-
             }
         }
 
-        return totalCostToDiscount;
+        return shoppingCartMap;
     }
 
     /**
@@ -205,5 +161,6 @@ public class CheckoutSolution {
         freeItemsMap.put("E", firstDiscount);
     }
 }
+
 
 
