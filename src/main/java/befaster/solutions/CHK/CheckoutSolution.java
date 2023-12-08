@@ -164,8 +164,3 @@ public class CheckoutSolution {
         freeItemsMap.put("E", firstDiscount);
     }
 }
-
-
-
-
-
