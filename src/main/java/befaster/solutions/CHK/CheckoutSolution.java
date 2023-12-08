@@ -83,7 +83,8 @@ public class CheckoutSolution {
      * @return Map<String, Integer> with removed free items
      */
     private Map<String, Integer> calculateFreeItems(Map<String, Integer> shoppingCartMap){
-        Map<String, Integer> shoppingCartMapTemp = shoppingCartMap;
+        Map<String, Integer> shoppingCartMapTemp = new HashMap<>();
+        shoppingCartMapTemp.putAll(shoppingCartMap);
 
         for (Map.Entry<String, Map<Integer, String>> entry: freeItemsMap.entrySet()) {
             String freeItem = entry.getKey();
@@ -92,7 +93,7 @@ public class CheckoutSolution {
             for(Map.Entry<Integer, String> subEntry : freeItemsDetailMap.entrySet()){
                 if(shoppingCartMapTemp.get(freeItem) >= subEntry.getKey()){
                     if(shoppingCartMap.get(subEntry.getValue()) != null){
-                        shoppingCartMap.put(subEntry.getValue(), shoppingCartMap.getOrDefault(subEntry.getValue(), 0) - subEntry.getKey());
+                        shoppingCartMap.put(subEntry.getValue(), shoppingCartMap.getOrDefault(subEntry.getValue(), 0) - 1);
                     }
                     shoppingCartMapTemp.put(freeItem, shoppingCartMapTemp.get(freeItem) - subEntry.getKey());
                 }
@@ -161,6 +162,7 @@ public class CheckoutSolution {
         freeItemsMap.put("E", firstDiscount);
     }
 }
+
 
 
 
