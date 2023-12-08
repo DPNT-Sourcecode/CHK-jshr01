@@ -40,9 +40,9 @@ public class CheckoutSolution {
             Integer price = pricesMap.get(item) == null ? 0 : pricesMap.get(item);
 
             if(discountsMap.containsKey(item)){
-                List<Integer> discount = discountsMap.get(item);
-                Integer quantityDiscount = discount.get(0);
-                Integer priceDiscount = discount.get(1);
+                Map<Integer, Integer> discount = discountsMap.get(item);
+                Integer quantityDiscount = discount.get(quantity);
+                Integer priceDiscount = discount.get(quantity);
 
                 totalCost += (quantity / quantityDiscount) * priceDiscount;
                 totalCost += (quantity % quantityDiscount) * price;
@@ -95,20 +95,16 @@ public class CheckoutSolution {
         //but lets do that in the same file for simplicity and prevent errors on test platform
 
         Map<Integer, Integer> firstDiscount = new HashMap<>();
-        //quantity
         firstDiscount.put(3, 130);
-        //price
         firstDiscount.put(5, 200);
         discountsMap.put("A", firstDiscount);
 
-        List<Integer> secondDiscount = new ArrayList<>();
-        //quantity
-        secondDiscount.add(2);
-        //price
-        secondDiscount.add(45);
+        Map<Integer, Integer> secondDiscount = new HashMap<>();
+        secondDiscount.put(2, 45);
         discountsMap.put("B", secondDiscount);
     }
 }
+
 
 
 
