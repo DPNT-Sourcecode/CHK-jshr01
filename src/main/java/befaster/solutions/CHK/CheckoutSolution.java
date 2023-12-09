@@ -127,14 +127,23 @@ public class CheckoutSolution {
         shoppingCartMapTemp.putAll(shoppingCartMap);
 
         Integer totalGroupDiscountsUnits = 0;
+        Integer promoGroup = null;
+        Integer promoCost = null;
 
         for (String keyItem : groupDiscountsMap.keySet()) {
             totalGroupDiscountsUnits += shoppingCartMap.getOrDefault(keyItem, 0);
+            if(promoGroup == null && promoCost == null){
+               Map.Entry<Integer, Integer> entry = groupDiscountsMap.get(keyItem).entrySet().iterator().hasNext() ? groupDiscountsMap.get(keyItem).entrySet().iterator().next() : null;
+               if(entry != null){
+                   promoGroup = entry.getKey();
+                   promoCost = entry.getValue();
+               }
+            }
         }
 
-        Integer totalGroups = totalGroupDiscountsUnits / 3;
-        shoppingCartMap.put("PROMO_3_45", totalGroups);
-        Integer unitsToRemove = totalGroups * 3;
+        Integer totalGroups = totalGroupDiscountsUnits / promoGroup;
+        shoppingCartMap.put(new StringBuilder("PROMO_" + promoGroup + "_" + promoCost).toString(), totalGroups);
+        Integer unitsToRemove = totalGroups * promoGroup;
 
 
             for (String keyItem : groupDiscountsMap.keySet()) {
@@ -288,5 +297,3 @@ public class CheckoutSolution {
         groupDiscountsMap.put("X", firstDiscount);
     }
 }
-
-
